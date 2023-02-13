@@ -1,0 +1,53 @@
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+
+void func(int no_piles , vector<int>& ip){
+   
+    sort(ip.begin() , ip.end());
+    int max = ip[ip.size()-1];
+    unordered_map<int , int> fmap;
+    for(int i = 0 ; i < ip.size() ; i++){
+        fmap[ip[i]]++;
+    }
+    
+    if(fmap[max] % 2 != 0){
+        cout << "Marichka" << endl;
+    }
+    else{
+        int f = 0;
+        for(int i = no_piles-1-fmap[max] ; i >= 0 ; i--){
+            if(fmap[ip[i]] % 2 != 0)
+            {
+                f = 1;
+                break;
+            }
+        }
+        if(f == 1){
+            cout << "Marichka" << endl; 
+        }
+        else{
+        cout << "Zenyk" << endl;
+        }
+        
+    }
+ 
+}
+
+int main() {
+	
+	int t;
+	cin >> t;
+	while(t--){
+	    int no_piles;
+	    cin >> no_piles;
+	    vector<int> ip(no_piles,0);
+   for(int i = 0 ; i < no_piles ; i++){
+	   cin >> ip[i];     
+	    }
+	      func(no_piles , ip);
+	}
+	return 0;
+}
