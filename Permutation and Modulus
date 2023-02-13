@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void func(int len){
+    
+    vector<int> op;
+    for(int i = 0 ; i < len-1 ; i++){
+        op.push_back(i + 2);
+    }
+     
+     op.push_back(1);
+     for(int i = 0 ; i < op.size() ; i++){
+         cout << op[i] << " ";
+     }
+     cout << endl;
+}
+
+int main() {
+   
+     int t;
+     cin >> t;
+     while(t--){
+         int len;
+         cin >> len;
+         func(len);
+     }
+     
+	return 0;
+}
